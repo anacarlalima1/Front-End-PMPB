@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="icon" href="/Brasao/brasao.png"> <!--lembrar de alterar-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Treinamento</title>
+</head>
+    <body>
+        <div class="main-content">
+            <header>
+                <h1>Treinamento de Imagens</h1>
+            
+            </header>
+        <div class="sidebar">
+            <div class="detalhes_logo">
+                <div class="logo_nome">RECTTS</div>
+                <i class='fas fa-bars' id="btn"></i>
+            </div>
+            <ul class="lista-nav">
+                <li>
+                    <a href="#">
+                        <i class='fas fa-chart-pie'></i>
+                        <span class="nome_links">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='fas fa-print'></i>
+                        <span class="nome_links">Analisar</span>
+                    </a>
+                    <span class="tooltip">Analisar</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='fas fa-images'></i>
+                        <span class="nome_links">Resultados</span>
+                    </a>
+                    <span class="tooltip">Resultados</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='fas fa-history'></i>
+                        <span class="nome_links">Histórico</span>
+                    </a>
+                    <span class="tooltip">Histórico</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='fas fa-database'></i>
+                        <span class="nome_links">Treinamento</span>
+                    </a>
+                    <span class="tooltip">Treinamento</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='fas fa-sign-out-alt'></i>
+                        <span class="nome_links">Sair</span>
+                    </a>
+                    <span class="tooltip">Sair</span>
+                </li>
+            </ul>
+        </div>
+    
+      <form>
+        <div class="container"> 
+                                   <!--selecionador de imagem-->
+            <div class="wrapper">
+                
+                <div class="image">
+                    <img src="" alt="" onerror="this.style.display='none'" style="display: none" onload="this.style.display=''">
+                </div>
+                <div class="content">
+                    <div class="icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <div class="text">
+                        Nenhuma imagem escolhida!
+                    </div>
+                </div>
+                <div id="cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="file-name">
+                    Nome do arquivo aqui
+                </div>
+            </div>
+            <button onclick="defaultBtnActive()" id="custom-btn">Selecionar imagem</button>
+            <input id="default-btn" type="file" accept="image/*" hidden>
+            <button onclick=" " id="send-img">Enviar para treino</button>
+        </div>
+    </form>
+        <script>    /* \/ função sidebar \/ */
+            let sidebar = document.querySelector(".sidebar");
+            let closeBtn = document.querySelector("#btn");
+
+            closeBtn.addEventListener("click", ()=>{
+                sidebar.classList.toggle("open");
+                menuBtnChange();
+            });
+
+            function menuBtnChange(){
+                if(sidebar.classList.contains("open"))
+                {
+                    closeBtn.classList.replace("bx-menu","bx-menu-alt-right");
+                }else{
+                    closeBtn.classList.replace("bx-menu-alt-right","bx-menu");
+                }
+            }   /* \/ função selecionador de img \/ */
+            const wrapper = document.querySelector(".wrapper");
+            const fileName = document.querySelector(".file-name");
+            const defaultBtn = document.querySelector("#default-btn");
+            const customBtn = document.querySelector("#cancel-btn");
+            const cancelBtn = document.querySelector("#cancel-btn i");
+            const img = document.querySelector("img");
+            let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+            function defaultBtnActive()
+            {
+                defaultBtn.click()
+            }
+            defaultBtn.addEventListener("change", function()
+            {
+                const file = this.files[0];
+                if(file)
+                {
+                    const reader = new FileReader();
+                    reader.onload = function()
+                    {
+                        const result = reader.result;
+                        img.src = result;
+                        wrapper.classList.add("active");
+                    }
+                    cancelBtn.addEventListener("click", function()
+                    {
+                        img.src = "";
+                        wrapper.classList.remove("active");
+                    })
+                    reader.readAsDataURL(file);
+                }
+                if(this.value)
+                {
+                    let valueStore = this.value.match(regExp);
+                    fileName.textContent = valueStore;
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.main-content 
+{
+    transition: margin-left 300ms;
+    margin-left: 78px;
+}
+.logo {
+align-items: center;}
+
+header 
+{
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    left: 78px;
+    width: calc(100% - 60px);
+    top: 0;
+    transition: left 300ms;
+}
+
+header h1 
+{
+    color: #222;
+    font-weight: 600;
+}
+.sidebar
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 78px;
+    background: #b71c1c;
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.5 ease;
+}
+
+.sidebar.open
+{
+    width: 250px;
+}
+
+.sidebar .detalhes_logo
+{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar .detalhes_logo .icon
+{
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar .detalhes_logo .logo_nome
+{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .detalhes_logo .icon,
+.sidebar.open .detalhes_logo .logo_nome
+{
+    opacity: 1;
+}
+
+.sidebar .detalhes_logo #btn
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: translateY(-50%);
+    font-size: 22px;
+    transition: all 0.4s ease;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .detalhes_logo #btn
+{
+    text-align: right;
+}
+
+.sidebar i
+{
+    color: #fff;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.sidebar .nav-list
+{
+    margin-top: 20px;
+    height: 100%;
+}
+
+.sidebar li
+{
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+}
+
+.sidebar li .tooltip
+{
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 15px);
+    z-index: 3;
+    background: #fff;
+    box-shadow: 0 5px 10px grey;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.sidebar li:hover .tooltip
+{
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip
+{
+    display: none;
+}
+
+.sidebar input
+{
+    font-size: 15px;
+    color: #fff;
+    font-weight: 400;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    width: 50px;
+    border: none;
+    border-radius: 12px;
+    transition: all 00.5s ease;
+    background: #b71c1c
+}
+
+.sidebar.open input
+{
+    padding: 0 20px 0 50px;
+    width: 100%;
+}
+
+.sidebar li a
+{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: #b71c1c;
+}
+
+.sidebar li a:hover
+{
+    background: #fff;
+}
+
+.sidebar li a .nome_links
+{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: 0.4s;
+}
+
+.sidebar.open li a .nome_links
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar li a:hover .nome_links,
+.sidebar li a:hover i
+{
+    transition: all 0.5s ease;
+    color: #2f3542
+}
+
+.sidebar li i
+{
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+@media (max-width: 420px) /*responsividade sidebar*/
+{
+    .sidebar li .tooltip
+    {
+        display: none;
+    }
+}
+/* \/ selecionador de img \/ */
+html, body
+{
+    background-color: #f0f0f0;
+    display: grid;
+    height: 85%;
+    place-items: center;
+    text-align: center;
+}
+
+.container
+{
+    height: 350px;
+    width: 430px;
+    position: relative;
+}
+
+.container .wrapper     /*borda listrado*/
+{
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.wrapper.active
+{
+    border: none;
+}
+
+.wrapper .image
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.wrapper .icon /*icone*/
+{
+    font-size: 100px;
+    color: #000000;
+
+}
+
+.wrapper .text  /*texto "nenhuma imagem escolhida"*/
+{
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.wrapper #cancel-btn i      /*btn de cancelar img 'X'*/
+{
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #b71c1c;
+    cursor: pointer;
+    display: none;
+}
+
+.wrapper.active:hover #cancel-btn i
+{
+    display: block;
+}
+
+.wrapper #cancel-btn i:hover    /*cor que fica ao passar o mouse no X*/
+{
+    color: #ff7979;
+}
+
+.wrapper .file-name     /*nome do arquivo ao enviar*/
+{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 18px;
+    color: #fff;
+    display: none;
+    background: #b71c1c;
+}
+
+.wrapper.active:hover .file-name
+{
+    display: block;
+}
+
+.container #custom-btn  /*botão de selecionar img*/
+{
+    font-size:19px;
+    font-family:Trebuchet MS;
+    width:200px;
+    height:50px;
+    border-width:1px;
+    color:#fff;
+    border-color:rgb(232, 232, 247);
+    font-weight:bold;
+    border-top-left-radius:17px;
+    border-top-right-radius:17px;
+    border-bottom-left-radius:17px;
+    border-bottom-right-radius:17px;
+    box-shadow:inset 0px 0px 15px 3px rgba(139, 15, 29, 1);
+    text-shadow:inset 0px 1px 0px rgba(110, 105, 106, 1);
+    background:linear-gradient(rgba(85, 3, 13, 1), rgba(197, 5, 28, 1));
+    margin-top: 20px;
+  
+}
+
+.container #send-img    /*botão de enviar para analise*/
+{font-size:19px;
+    font-family:Trebuchet MS;
+    width:200px;
+    height:50px;
+    border-width:1px;
+    color:#fff;
+    border-color:rgb(232, 232, 247);
+    font-weight:bold;
+    border-top-left-radius:17px;
+    border-top-right-radius:17px;
+    border-bottom-left-radius:17px;
+    border-bottom-right-radius:17px;
+    box-shadow:inset 0px 0px 15px 3px rgba(139, 15, 29, 1);
+    text-shadow:inset 0px 1px 0px rgba(110, 105, 106, 1);
+    background:linear-gradient(rgba(85, 3, 13, 1), rgba(197, 5, 28, 1));
+}
+
+@media (max-width: 600px)
+{
+
+.h1{
+    margin-left: 60px;
+    padding-right: 60px;
+}
+.container
+{
+    height: 350px;
+    width: 430px;
+    position: relative;
+    padding-left: 82px;
+    padding-right: 75px;
+}
+.main-content {
+align-items: center;
+margin-top: 130px;}
+.container .wrapper     /*borda listrado*/
+{
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.wrapper.active
+{
+    border: none;
+}
+
+.wrapper .image
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.wrapper .icon /*icone*/
+{
+    font-size: 100px;
+    color: #000000;
+}
+
+.wrapper .text  /*texto "nenhuma imagem escolhida"*/
+{
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.wrapper #cancel-btn i      /*btn de cancelar img 'X'*/
+{
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #b71c1c;
+    cursor: pointer;
+    display: none;
+}
+
+.wrapper.active:hover #cancel-btn i
+{
+    display: block;
+}
+
+.wrapper #cancel-btn i:hover    /*cor que fica ao passar o mouse no X*/
+{
+    color: #ff7979;
+}
+
+.wrapper .file-name     /*nome do arquivo ao enviar*/
+{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 18px;
+    color: #fff;
+    display: none;
+    background: #b71c1c;
+}
+
+.wrapper.active:hover .file-name
+{
+    display: block;
+}
+
+.container #custom-btn  /*botão de selecionar img*/
+{
+    font-size:19px;
+    font-family:Trebuchet MS;
+    width:200px;
+    height:50px;
+    border-width:1px;
+    color:#fff;
+    border-color:rgb(232, 232, 247);
+    font-weight:bold;
+    border-top-left-radius:17px;
+    border-top-right-radius:17px;
+    border-bottom-left-radius:17px;
+    border-bottom-right-radius:17px;
+    box-shadow:inset 0px 0px 15px 3px rgba(139, 15, 29, 1);
+    text-shadow:inset 0px 1px 0px rgba(110, 105, 106, 1);
+    background:linear-gradient(rgba(85, 3, 13, 1), rgba(197, 5, 28, 1));
+    margin-top: 20px;
+  
+}
+
+.container #send-img    /*botão de enviar para analise*/
+{font-size:19px;
+    font-family:Trebuchet MS;
+    width:200px;
+    height:50px;
+    border-width:1px;
+    color:#fff;
+    border-color:rgb(232, 232, 247);
+    font-weight:bold;
+    border-top-left-radius:17px;
+    border-top-right-radius:17px;
+    border-bottom-left-radius:17px;
+    border-bottom-right-radius:17px;
+    box-shadow:inset 0px 0px 15px 3px rgba(139, 15, 29, 1);
+    text-shadow:inset 0px 1px 0px rgba(110, 105, 106, 1);
+    background:linear-gradient(rgba(85, 3, 13, 1), rgba(197, 5, 28, 1));
+    margin-top: 20px;
+}
+}

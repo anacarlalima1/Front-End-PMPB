@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="icon" href="/Brasao/brasao.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <title>Resultados Análise</title>
+</head>
+  <body>
+    <div class="sidebar">
+      <div class="detalhes_logo">
+          <div class="logo_nome">RECTTS</div>
+          <i class='fas fa-bars' id="btn"></i>
+      </div>
+      <ul class="lista-nav">
+          <li>
+              <a href="#">
+                  <i class='fas fa-chart-pie'></i>
+                  <span class="nome_links">Dashboard</span>
+              </a>
+              <span class="tooltip">Dashboard</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-print'></i>
+                  <span class="nome_links">Analisar</span>
+              </a>
+              <span class="tooltip">Analisar</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-images'></i>
+                  <span class="nome_links">Resultados</span>
+              </a>
+              <span class="tooltip">Resultados</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-history'></i>
+                  <span class="nome_links">Histórico</span>
+              </a>
+              <span class="tooltip">Histórico</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-database'></i>
+                  <span class="nome_links">Treinamento</span>
+              </a>
+              <span class="tooltip">Treinamento</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-sign-out-alt'></i>
+                  <span class="nome_links">Sair</span>
+              </a>
+              <span class="tooltip">Sair</span>
+          </li>
+      </ul>
+    </div>
+    <header>
+      <h1>Resultados da Análise</h1>
+    </header>
+    <div class="sentimg">
+      <img src="Resultado1.jpeg" width="100%" height="70%">
+      <div class="desc">
+      <p>Tatuagem Selecionada</p>
+      </div>
+    </div>
+    <section class="grid1">
+      <div class="results">
+      <img src="Resultado2.jpg" width="100%" height="70%">
+      <div class="infos">
+        <p>Nome: teste1.png</p>
+        <p>Similaridade: 300</p>
+      </div>
+      </div>
+      <div class="results">
+        <img src="Resultado3.jpg" width="100%" height="70%">
+        <div class="infos">
+          <p>Nome: teste1.png</p>
+          <p>Similaridade: 300</p>
+        </div>
+      </div>
+      <div class="results">
+        <img src="Resultado4.jpg" width="100%" height="70%">
+        <div class="infos">
+          <p>Nome: teste1.png</p>
+          <p>Similaridade: 300</p>
+        </div>
+      </div>
+      </section>
+      <section class="grid2">
+        <div class="results">
+        <img src="Resultado5.jpg" width="100%" height="70%">
+        <div class="infos">
+          <p>Nome: teste1.png</p>
+          <p>Similaridade: 300</p>
+        </div>
+        </div>
+        <div class="results">
+          <img src="Resultado6.jpg" width="100%" height="70%">
+          <div class="infos">
+            <p>Nome: teste1.png</p>
+            <p>Similaridade: 300</p>
+          </div>
+        </div>
+        <div class="results">
+          <img src="Resultado7.jpg" width="100%" height="70%">
+          <div class="infos">
+            <p>Nome: teste1.png</p>
+            <p>Similaridade: 300</p>
+          </div>
+        </div>
+        </section>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let closeBtn = document.querySelector("#btn");
+
+      closeBtn.addEventListener("click", ()=>{
+          sidebar.classList.toggle("open");
+          menuBtnChange();
+      });
+
+      function menuBtnChange(){
+          if(sidebar.classList.contains("open"))
+          {
+              closeBtn.classList.replace("bx-menu","bx-menu-alt-right");
+          }else{
+              closeBtn.classList.replace("bx-menu-alt-right","bx-menu");
+          }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="icon" href="/Brasao/brasao.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <title>Dashboard</title>
+</head>
+  <body>
+    <div class="sidebar">
+      <div class="detalhes_logo">
+          <div class="logo_nome">RECTTS</div>
+          <i class='fas fa-bars' id="btn"></i>
+      </div>
+      <ul class="list_nav">
+          <li>
+              <a href="#">
+                  <i class='fas fa-chart-pie'></i>
+                  <span class="nome_links">Dashboard</span>
+              </a>
+              <span class="tooltip">Dashboard</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-print'></i>
+                  <span class="nome_links">Analisar</span>
+              </a>
+              <span class="tooltip">Analisar</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-images'></i>
+                  <span class="nome_links">Resultados</span>
+              </a>
+              <span class="tooltip">Resultados</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-history'></i>
+                  <span class="nome_links">Histórico</span>
+              </a>
+              <span class="tooltip">Histórico</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-database'></i>
+                  <span class="nome_links">Treinamento</span>
+              </a>
+              <span class="tooltip">Treinamento</span>
+          </li>
+          <li>
+              <a href="#">
+                  <i class='fas fa-sign-out-alt'></i>
+                  <span class="nome_links">Sair</span>
+              </a>
+              <span class="tooltip">Sair</span>
+          </li>
+      </ul>
+    </div>
+    
+    <div class="main-content">
+      <header>
+          <h1>Dashboard</h1>
+
+      </header>
+      <main>
+        <div class="cards">
+            <div class="card-single">
+                <div>
+                  <h1>60</h1>
+                  <span>Logins</span>
+                </div>
+                <div>
+                  <span class="fas fa-user-alt"></span>
+                </div>
+            </div>
+            <div class="card-single">
+                <div>
+                  <h1>100</h1>
+                  <span>Análises</span>
+                </div>
+                <div>
+                  <span class="fas fa-print"></span>
+                </div>
+            </div>
+            <div class="card-single">
+                <div>
+                  <h1>43</h1>
+                  <span>Requisições</span>
+                </div>
+                <div>
+                  <span class="fas fa-id-card"></span>
+                </div>
+            </div>
+            <div class="card-single">
+                <div>
+                  <h1>524</h1>
+                  <span>Treinamentos</span>
+                </div>
+                <div>
+                  <span class="fas fa-database"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="columnchart_material" style="height: 500px;"></div>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['bar']});
+          google.charts.setOnLoadCallback(drawChart);
+    
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              [' ', 'Análises', 'Treinamentos'],
+              ['Ontem', 165, 74],
+              ['Hoje', 121, 36],
+            ]);
+    
+            var options = {
+              chart: {
+                title: 'Gráfico Geral',
+                subtitle: '11 Nov 2021, 13:18 PM',
+              }
+            };
+    
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+    
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+          }
+        </script>
+
+        <script>
+            let sidebar = document.querySelector(".sidebar");
+            let closeBtn = document.querySelector("#btn");
+
+            closeBtn.addEventListener("click", ()=>{
+                sidebar.classList.toggle("open");
+                menuBtnChange();
+            });
+
+            function menuBtnChange(){
+                if(sidebar.classList.contains("open"))
+                {
+                    closeBtn.classList.replace("bx-menu","bx-menu-alt-right");
+                }else{
+                    closeBtn.classList.replace("bx-menu-alt-right","bx-menu");
+                }
+            }
+        </script>
+  </body>
+</html>
